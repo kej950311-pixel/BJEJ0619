@@ -108,18 +108,29 @@
      OG Meta Tags
      ═══════════════════════════════════════════ */
 
-  function setMetaTags() {
-    const m = CONFIG.meta;
-    document.title = m.title;
-    const setMeta = (attr, val, content) => {
-      const el = document.querySelector(`meta[${attr}="${val}"]`);
-      if (el) el.setAttribute('content', content);
-    };
-    setMeta('property', 'og:title', m.title);
-    setMeta('property', 'og:description', m.description);
-    setMeta('property', 'og:image', 'images/og/1.jpg');
-    setMeta('name', 'description', m.description);
-  }
+function setMetaTags() {
+  const m = CONFIG.meta;
+
+  document.title = m.title;
+
+  const setMeta = (attr, val, content) => {
+    const el = document.querySelector(`meta[${attr}="${val}"]`);
+    if (el) el.setAttribute('content', content);
+  };
+
+  setMeta('property', 'og:title', m.title);
+  setMeta('property', 'og:description', m.description);
+
+  // 대표 이미지는 반드시 절대주소 사용
+  setMeta(
+    'property',
+    'og:image',
+    'https://kej950311-pixel.github.io/BJEJ0619/images/og/1.jpg'
+  );
+
+  setMeta('property', 'og:url', 'https://kej950311-pixel.github.io/BJEJ0619/');
+  setMeta('name', 'description', m.description);
+}
 
   /* ═══════════════════════════════════════════
      Curtain
