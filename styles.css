@@ -1369,3 +1369,79 @@ a {
   margin-top: 5px !important;
   font-size: 14px !important;
 }
+
+/* ─── 교통 및 주차 안내 가독성 개선 ─── */
+
+.location__guide-section {
+  text-align: left;
+  padding: 26px 22px;
+  margin-bottom: 24px;
+}
+
+/* 소제목 */
+.location__guide-title {
+  font-size: 19px;
+  margin-bottom: 24px;
+}
+
+/* 버스 항목 */
+.location__bus-item {
+  margin-bottom: 27px;
+}
+
+.location__bus-stop {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.location__bus-route {
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 7px;
+}
+
+.location__badge {
+  font-size: 13px;
+}
+
+.location__bus-desc {
+  font-size: 13px;
+  line-height: 1.9;
+  margin-top: 7px;
+}
+
+/* 주차 안내 */
+.location__parking-free {
+  font-size: 15px;
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
+.location__parking-intro {
+  font-size: 13px;
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+
+.location__parking-notice {
+  font-size: 13px;
+  line-height: 1.9;
+  margin-bottom: 22px;
+}
+
+.location__parking-item {
+  margin-bottom: 23px;
+}
+
+.location__parking-item p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.location__parking-desc {
+  font-size: 13px !important;
+  line-height: 1.9 !important;
+  margin-top: 5px !important;
+}
