@@ -1445,3 +1445,24 @@ a {
   line-height: 1.9 !important;
   margin-top: 5px !important;
 }
+
+/* 주차장별 간격 */
+.location__parking-item {
+  margin: 0 0 25px !important;
+  padding-left: 3px;
+}
+
+.location__parking-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.location__parking-item p {
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+  margin: 0 !important;
+}
+
+.location__parking-item .location__parking-desc {
+  font-size: 13px !important;
+  margin-top: 5px !important;
+}
