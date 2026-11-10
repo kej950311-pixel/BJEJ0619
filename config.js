@@ -47,7 +47,7 @@ const CONFIG = {
     date: "2027-06-19",
     time: "12:10",
     venue: "더아리엘",
-    hall: "스카이 가든홀",
+    hall: "6층 스카이가든홀",
     address: "경기 수원시 팔달구 중부대로 181",
     tel: "031-214-9300",
     mapLinks: {
