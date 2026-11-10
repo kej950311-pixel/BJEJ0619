@@ -1646,8 +1646,8 @@ a {
     font-size: 10px;
 }
 
-/* 오시는 길 약도 이미지 */
-.location-map-container {
+/* 오시는 길 약도 */
+.location__map {
     width: 100% !important;
     height: auto !important;
     max-height: none !important;
@@ -1657,12 +1657,13 @@ a {
     align-items: center !important;
 }
 
-.location-map {
+.location__map-img {
     display: block !important;
     width: 100% !important;
     max-width: 640px !important;
     height: auto !important;
     max-height: none !important;
     object-fit: contain !important;
+    object-position: center !important;
     margin: 0 auto !important;
 }
