@@ -1647,10 +1647,22 @@ a {
 }
 
 /* 오시는 길 약도 이미지 */
-.location-map {
-    width: 85% !important;
+.location-map-container {
+    width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.location-map {
     display: block !important;
+    width: 100% !important;
+    max-width: 640px !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
     margin: 0 auto !important;
 }
