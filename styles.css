@@ -1645,3 +1645,12 @@ a {
     white-space: nowrap;
     font-size: 10px;
 }
+
+/* 오시는 길 약도 이미지 */
+.location-map {
+    width: 85% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
