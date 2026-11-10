@@ -1627,10 +1627,21 @@ a {
 
 /* 편의시설 포토부스 안내 문구 */
 .facility__main-text {
-    font-size: 10px !important;
+    font-size: 12px !important;
     white-space: nowrap !important;
     width: max-content !important;
     max-width: none !important;
     margin-left: 50% !important;
     transform: translateX(-50%);
+}
+
+/* 핑크색 메모 안의 안내 문구 */
+.facility__sub-text {
+    font-size: 11px !important;
+}
+
+.facility__sub-message {
+    display: block;
+    white-space: nowrap;
+    font-size: 10px;
 }
