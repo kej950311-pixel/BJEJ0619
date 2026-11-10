@@ -1624,3 +1624,9 @@ a {
     font-size: 13px !important;
     margin-top: 4px !important;
 }
+
+/* 편의시설 포토부스 안내 문구 */
+.facility__main-text {
+    font-size: 11px;
+    white-space: nowrap;
+}
