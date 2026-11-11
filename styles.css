@@ -1789,3 +1789,23 @@ a {
     pointer-events: none;
   }
 }
+
+/* PC 손글씨 오프닝 잘림 방지 */
+@media (min-width: 769px) {
+  .handwriting-text {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 60px !important;
+    box-sizing: border-box !important;
+    font-size: clamp(36px, 4vw, 54px) !important;
+    overflow: visible !important;
+  }
+
+  .handwriting-text span {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: inherit !important;
+    text-align: center !important;
+    overflow: visible !important;
+  }
+}
