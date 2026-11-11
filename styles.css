@@ -1725,15 +1725,15 @@ a {
   justify-content: center;
   gap: 4px;
   width: 100%;
-  max-width: 100%;
-  padding: 0 32px;
+  max-width: 900px;
+  padding: 0 24px;
   box-sizing: border-box;
   overflow: visible;
   color: #111111;
   font-family: 'Allura', cursive;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(42px, 10vw, 78px);
+  font-size: clamp(48px, 7vw, 76px);
   line-height: 1.2;
 }
 
@@ -1746,6 +1746,22 @@ a {
   overflow: visible;
   clip-path: inset(0 100% 0 0);
   animation: handwritingReveal 1.2s steps(25, end) forwards;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .handwriting-text {
+    font-size: clamp(62px, 15vw, 78px);
+    padding: 0 16px;
+  }
+}
+
+/* PC */
+@media (min-width: 769px) {
+  .handwriting-text {
+    font-size: clamp(48px, 6vw, 72px);
+    padding: 0 40px;
+  }
 }
 
 .handwriting-text span:nth-child(1) {
