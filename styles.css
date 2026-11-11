@@ -1686,3 +1686,8 @@ a {
     display: none;
   }
 }
+
+#storyContent strong {
+  color: #111;
+  font-weight: 700;
+}
