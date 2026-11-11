@@ -1699,9 +1699,8 @@ a {
 
 @media (min-width: 769px) {
   #greetingContent strong {
-    font-weight: 900 !important;
+    font-weight: 800 !important;
     color: #222222 !important;
-    -webkit-text-stroke: 0.8px #222222;
   }
 }
 
