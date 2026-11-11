@@ -474,7 +474,7 @@ function setMetaTags() {
 
   function initStory(storyImages) {
     $('#storyTitle').textContent = CONFIG.story.title;
-    $('#storyContent').textContent = CONFIG.story.content;
+$('#storyContent').innerHTML = CONFIG.story.content;
 
     const container = $('#storyPhotos');
     const placeholder = container.querySelector('.loading-placeholder');
