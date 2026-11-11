@@ -857,6 +857,7 @@ function startWhenReady() {
       audio.pause();
     }
   });
+  }
 }
 
 
