@@ -1693,6 +1693,7 @@ a {
 }
 
 #greetingContent strong {
-  color: #222222 !important;
-  font-weight: 700 !important;
+  color: #333333 !important;
+  font-weight: 900 !important;
+  -webkit-text-stroke: 0.35px #333333;
 }
