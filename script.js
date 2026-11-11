@@ -904,5 +904,26 @@ function startWhenReady() {
   } else {
     init();
   }
+  // Kakao Talk Share
+  const KAKAO_JS_KEY = '여기에_복사한_JavaScript_키_입력';
+
+  if (window.Kakao && !window.Kakao.isInitialized()) {
+    window.Kakao.init(KAKAO_JS_KEY);
+  }
+
+  document.addEventListener('click', function (event) {
+    const button = event.target.closest('#kakaoShareBtn');
+    if (!button) return;
+
+    if (!window.Kakao || !window.Kakao.isInitialized()) {
+      alert('카카오 공유 기능을 불러오지 못했습니다.');
+      return;
+    }
+
+    window.Kakao.Share.sendCustom({
+      templateId: 133841
+    });
+  });
+  
 })();
 
