@@ -755,93 +755,117 @@ $('#storyContent').innerHTML = CONFIG.story.content;
      Background Music
      ═══════════════════════════════════════════ */
 
-  function initMusic() {
-    if (!CONFIG.music || !CONFIG.music.enabled) return;
+function initMusic() {
+  if (!CONFIG.music || !CONFIG.music.enabled) return;
 
-    const audio = new Audio(CONFIG.music.src);
-    audio.loop = CONFIG.music.loop !== false;
-    audio.preload = 'auto';
+  const audio = new Audio(CONFIG.music.src);
+  audio.loop = CONFIG.music.loop !== false;
+  audio.preload = 'auto';
 
-    // 음악 재생 버튼 생성
-    const button = document.createElement('button');
-    button.id = 'musicToggle';
-    button.type = 'button';
-    button.textContent = '♫ 음악 켜기';
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    button.setAttribute('aria-label', '배경음악 켜기/끄기');
+  const button = document.createElement('button');
+  button.id = 'musicToggle';
+  button.type = 'button';
+  button.textContent = '♫ 음악 켜기';
+  button.setAttribute('aria-label', '배경음악 켜기/끄기');
 
-    button.style.cssText = `
-      position: fixed;
-      right: 18px;
-      bottom: 24px;
-      z-index: 9999;
-      padding: 10px 16px;
-      border: 1px solid #8b9e7e;
-      border-radius: 30px;
-      background: rgba(255,255,255,0.92);
-      color: #4a5e3b;
-      font-size: 13px;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    `;
+  button.style.cssText = `
+    position: fixed;
+    right: 18px;
+    bottom: 24px;
+    z-index: 9999;
+    padding: 10px 16px;
+    border: 1px solid #8b9e7e;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.92);
+    color: #4a5e3b;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  `;
 
-    document.body.appendChild(button);
+  document.body.appendChild(button);
 
-    function updateButton() {
-      const playing = !audio.paused;
-      button.textContent = playing ? '♫ 음악 끄기' : '♫ 음악 켜기';
-      button.setAttribute(
-        'aria-label',
-        playing ? '배경음악 끄기' : '배경음악 켜기'
-      );
-    }
+  function updateButton() {
+    const playing = !audio.paused;
+    button.textContent = playing ? '♫ 음악 끄기' : '♫ 음악 켜기';
+    button.setAttribute(
+      'aria-label',
+      playing ? '배경음악 끄기' : '배경음악 켜기'
+    );
+  }
 
-    audio.addEventListener('play', updateButton);
-    audio.addEventListener('pause', updateButton);
+  audio.addEventListener('play', updateButton);
+  audio.addEventListener('pause', updateButton);
 
-    // 음악 재생
-    function playMusic() {
-      return audio.play().then(() => {
-        updateButton();
-        return true;
-      }).catch(() => {
-        return false;
-      });
-    }
+  function playMusic() {
+    return audio.play().then(() => {
+      updateButton();
+      return true;
+    }).catch(() => {
+      return false;
+    });
+  }
 
-    // 페이지 접속 시 자동 재생 시도
+  if (!isMobile) {
+    // PC는 기존 자동재생 방식 유지
     if (CONFIG.music.autoplay !== false) {
       playMusic();
     }
 
-    // 자동 재생이 차단되면 첫 화면 조작 시 재생
-    function handleFirstInteraction(e) {
+    function handleDesktopInteraction(e) {
       if (e.target.closest && e.target.closest('#musicToggle')) return;
 
       playMusic().then(success => {
         if (success) {
           document.removeEventListener(
             'pointerdown',
-            handleFirstInteraction
+            handleDesktopInteraction
           );
         }
       });
     }
 
-    document.addEventListener(
-      'pointerdown',
-      handleFirstInteraction
-    );
+    document.addEventListener('pointerdown', handleDesktopInteraction);
+  } else {
+    // 모바일은 오프닝이 끝날 때까지 재생 대기
+    const intro = document.querySelector('.handwriting-intro');
+    let introFinished = !intro;
+    let userInteracted = false;
 
-    // 음악 ON/OFF 버튼
-    button.addEventListener('click', () => {
-      if (audio.paused) {
+    function startWhenReady() {
+      if (introFinished && userInteracted) {
         playMusic();
-      } else {
-        audio.pause();
       }
+    }
+
+    if (intro) {
+      intro.addEventListener('animationend', function (e) {
+        if (e.animationName === 'introFadeOut') {
+          introFinished = true;
+          startWhenReady();
+        }
+      });
+    }
+
+    document.addEventListener('pointerdown', function (e) {
+      if (e.target.closest && e.target.closest('#musicToggle')) return;
+
+      userInteracted = true;
+      startWhenReady();
     });
   }
+
+  // 음악 ON/OFF 버튼
+  button.addEventListener('click', () => {
+    if (audio.paused) {
+      playMusic();
+    } else {
+      audio.pause();
+    }
+  });
+}
 
 
   /* ═══════════════════════════════════════════
