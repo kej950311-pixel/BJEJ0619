@@ -1693,7 +1693,14 @@ a {
 }
 
 #greetingContent strong {
-  color: #333333 !important;
-  font-weight: 900 !important;
-  -webkit-text-stroke: 0.35px #333333;
+  color: #222222 !important;
+  font-weight: 700 !important;
+}
+
+@media (min-width: 769px) {
+  #greetingContent strong {
+    font-weight: 900 !important;
+    color: #222222 !important;
+    -webkit-text-stroke: 0.8px #222222;
+  }
 }
