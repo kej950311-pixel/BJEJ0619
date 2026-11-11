@@ -355,7 +355,7 @@ function setMetaTags() {
 
   function initGreeting() {
     $('#greetingTitle').textContent = CONFIG.greeting.title;
-    $('#greetingContent').textContent = CONFIG.greeting.content;
+$('#greetingContent').innerHTML = CONFIG.greeting.content.replace(/\n/g, '<br>');
 
     const g = CONFIG.groom;
     const b = CONFIG.bride;
