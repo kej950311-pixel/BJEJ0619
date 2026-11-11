@@ -829,16 +829,15 @@ function initMusic() {
 
     document.addEventListener('pointerdown', handleDesktopInteraction);
   } else {
-    // 모바일은 오프닝이 끝날 때까지 재생 대기
-    const intro = document.querySelector('.handwriting-intro');
-    let introFinished = !intro;
-    let userInteracted = false;
+// 모바일은 오프닝이 끝나면 자동재생 시도
+const intro = document.querySelector('.handwriting-intro');
+let introFinished = !intro;
 
-    function startWhenReady() {
-      if (introFinished && userInteracted) {
-        playMusic();
-      }
-    }
+function startWhenReady() {
+  if (introFinished) {
+    playMusic();
+  }
+}
 
     if (intro) {
       intro.addEventListener('animationend', function (e) {
@@ -849,13 +848,6 @@ function initMusic() {
       });
     }
 
-    document.addEventListener('pointerdown', function (e) {
-      if (e.target.closest && e.target.closest('#musicToggle')) return;
-
-      userInteracted = true;
-      startWhenReady();
-    });
-  }
 
   // 음악 ON/OFF 버튼
   button.addEventListener('click', () => {
