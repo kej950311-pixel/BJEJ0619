@@ -1691,3 +1691,8 @@ a {
   color: #111;
   font-weight: 700;
 }
+
+#greetingContent strong {
+  color: #222222 !important;
+  font-weight: 700 !important;
+}
