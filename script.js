@@ -922,7 +922,7 @@ function startWhenReady() {
     }
 
     window.Kakao.Share.sendCustom({
-      templateId: 133841
+      templateId: 138841
     });
   });
   
