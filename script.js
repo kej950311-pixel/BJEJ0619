@@ -906,25 +906,3 @@ function startWhenReady() {
   }
 })();
 
-/* ========================================
-   포토부스 / ATM 탭 전환
-======================================== */
-
-document.addEventListener('DOMContentLoaded', function () {
-  const facilityTabs = document.querySelectorAll('[data-facility-tab]');
-  const facilityPanels = document.querySelectorAll('[data-facility-panel]');
-
-  facilityTabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      const selected = tab.dataset.facilityTab;
-
-      facilityTabs.forEach(function (item) {
-        item.classList.toggle('is-active', item === tab);
-      });
-
-      facilityPanels.forEach(function (panel) {
-        panel.hidden = panel.dataset.facilityPanel !== selected;
-      });
-    });
-  });
-});
