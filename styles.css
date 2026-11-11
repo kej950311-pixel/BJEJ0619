@@ -1667,3 +1667,22 @@ a {
     object-position: center !important;
     margin: 0 auto !important;
 }
+
+/* 계좌 안내 문구 - PC / 모바일 구분 */
+.account__desc--mobile {
+  display: none;
+}
+
+.account__desc--desktop {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .account__desc--mobile {
+    display: block;
+  }
+
+  .account__desc--desktop {
+    display: none;
+  }
+}
