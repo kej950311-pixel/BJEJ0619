@@ -473,6 +473,7 @@ $('#greetingContent').innerHTML = CONFIG.greeting.content.replace(/\n/g, '<br>')
      ═══════════════════════════════════════════ */
 
   function initStory(storyImages) {
+      if (!$('#story')) return;
     $('#storyTitle').textContent = CONFIG.story.title;
 $('#storyContent').innerHTML = CONFIG.story.content;
 
