@@ -1712,7 +1712,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+
+  /* 따뜻한 미색 도화지 질감 */
+  background-color: #f3eee3;
+  background-image:
+    radial-gradient(ellipse at 18% 22%, rgba(255, 255, 255, 0.42) 0, transparent 48%),
+    radial-gradient(ellipse at 82% 76%, rgba(210, 195, 168, 0.13) 0, transparent 52%),
+    repeating-linear-gradient(0deg, rgba(128, 111, 82, 0.025) 0, rgba(128, 111, 82, 0.025) 1px, transparent 1px, transparent 4px),
+    repeating-linear-gradient(90deg, rgba(128, 111, 82, 0.018) 0, rgba(128, 111, 82, 0.018) 1px, transparent 1px, transparent 5px);
+
   opacity: 1;
   animation: introFadeOut 1.2s ease forwards;
   animation-delay: 5.8s;
