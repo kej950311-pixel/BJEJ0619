@@ -886,9 +886,10 @@ function startWhenReady() {
     initScrollAnimations();
 
     // Set story text immediately (photos load async)
-    $('#storyTitle').textContent = CONFIG.story.title;
-    $('#storyContent').textContent = CONFIG.story.content;
-
+if ($('#story')) {
+  $('#storyTitle').textContent = CONFIG.story.title;
+  $('#storyContent').textContent = CONFIG.story.content;
+}
     // Auto-detect story and gallery images in parallel
     const [storyImages, galleryImages] = await Promise.all([
       loadImagesFromFolder('story'),
